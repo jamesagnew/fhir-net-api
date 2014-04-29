@@ -46,6 +46,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generated\Model\Appointment.cs" />
+    <Compile Include="Generated\Model\AppointmentResponse.cs" />
+    <Compile Include="Generated\Model\Availability.cs" />
     <Compile Include="Generated\Model\Bindings.cs" />
     <Compile Include="Generated\Model\ModelInfo.cs" />
     <Compile Include="Generated\Model\Address.cs" />
@@ -57,6 +60,7 @@
     <Compile Include="Generated\Model\Extension.cs" />
     <Compile Include="Generated\Model\HumanName.cs" />
     <Compile Include="Generated\Model\Identifier.cs" />
+    <Compile Include="Generated\Model\Namespace.cs" />
     <Compile Include="Generated\Model\Narrative.cs" />
     <Compile Include="Generated\Model\Period.cs" />
     <Compile Include="Generated\Model\Quantity.cs" />
@@ -78,6 +82,7 @@
     <Compile Include="Generated\Model\Oid.cs" />
     <Compile Include="Generated\Model\FhirString.cs" />
     <Compile Include="Generated\Model\FhirUri.cs" />
+    <Compile Include="Generated\Model\Slot.cs" />
     <Compile Include="Generated\Model\Uuid.cs" />
     <Compile Include="Generated\Model\XHtml.cs" />
     <Compile Include="Generated\Model\Resource.cs" />
