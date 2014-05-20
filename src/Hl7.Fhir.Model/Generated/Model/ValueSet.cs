@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 
 /*
-  Copyright (c) 2011-2013, HL7, Inc.
+  Copyright (c) 2011-2014, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -36,7 +36,7 @@ using System.Runtime.Serialization;
 */
 
 //
-// Generated on Thu, Apr 24, 2014 12:29+0200 for FHIR v0.80
+// Generated on Tue, May 20, 2014 16:08+0200 for FHIR v0.2.1
 //
 namespace Hl7.Fhir.Model
 {
@@ -922,9 +922,71 @@ namespace Hl7.Fhir.Model
         }
         
         /// <summary>
+        /// Textual description of the intended scope and use
+        /// </summary>
+        [FhirElement("purpose", Order=100)]
+        [DataMember]
+        public Hl7.Fhir.Model.FhirString PurposeElement
+        {
+            get { return _PurposeElement; }
+            set { _PurposeElement = value; OnPropertyChanged("PurposeElement"); }
+        }
+        private Hl7.Fhir.Model.FhirString _PurposeElement;
+        
+        /// <summary>
+        /// Textual description of the intended scope and use
+        /// </summary>
+        /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        [NotMapped]
+        [IgnoreDataMemberAttribute]
+        public string Purpose
+        {
+            get { return PurposeElement != null ? PurposeElement.Value : null; }
+            set
+            {
+                if(value == null)
+                  PurposeElement = null; 
+                else
+                  PurposeElement = new Hl7.Fhir.Model.FhirString(value);
+                OnPropertyChanged("Purpose");
+            }
+        }
+        
+        /// <summary>
+        /// Indicates whether or not any change to the content logical definition may occur
+        /// </summary>
+        [FhirElement("immutable", Order=110)]
+        [DataMember]
+        public Hl7.Fhir.Model.FhirBoolean ImmutableElement
+        {
+            get { return _ImmutableElement; }
+            set { _ImmutableElement = value; OnPropertyChanged("ImmutableElement"); }
+        }
+        private Hl7.Fhir.Model.FhirBoolean _ImmutableElement;
+        
+        /// <summary>
+        /// Indicates whether or not any change to the content logical definition may occur
+        /// </summary>
+        /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        [NotMapped]
+        [IgnoreDataMemberAttribute]
+        public bool? Immutable
+        {
+            get { return ImmutableElement != null ? ImmutableElement.Value : null; }
+            set
+            {
+                if(value == null)
+                  ImmutableElement = null; 
+                else
+                  ImmutableElement = new Hl7.Fhir.Model.FhirBoolean(value);
+                OnPropertyChanged("Immutable");
+            }
+        }
+        
+        /// <summary>
         /// Name of the publisher (Organization or individual)
         /// </summary>
-        [FhirElement("publisher", InSummary=true, Order=100)]
+        [FhirElement("publisher", InSummary=true, Order=120)]
         [DataMember]
         public Hl7.Fhir.Model.FhirString PublisherElement
         {
@@ -955,7 +1017,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Contact information of the publisher
         /// </summary>
-        [FhirElement("telecom", InSummary=true, Order=110)]
+        [FhirElement("telecom", InSummary=true, Order=130)]
         [Cardinality(Min=0,Max=-1)]
         [DataMember]
         public List<Hl7.Fhir.Model.Contact> Telecom
@@ -968,7 +1030,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Human language description of the value set
         /// </summary>
-        [FhirElement("description", InSummary=true, Order=120)]
+        [FhirElement("description", InSummary=true, Order=140)]
         [Cardinality(Min=1,Max=1)]
         [DataMember]
         public Hl7.Fhir.Model.FhirString DescriptionElement
@@ -998,9 +1060,9 @@ namespace Hl7.Fhir.Model
         }
         
         /// <summary>
-        /// About the value set or its content
+        /// Publishing restrictions for the value set
         /// </summary>
-        [FhirElement("copyright", Order=130)]
+        [FhirElement("copyright", Order=150)]
         [DataMember]
         public Hl7.Fhir.Model.FhirString CopyrightElement
         {
@@ -1010,7 +1072,7 @@ namespace Hl7.Fhir.Model
         private Hl7.Fhir.Model.FhirString _CopyrightElement;
         
         /// <summary>
-        /// About the value set or its content
+        /// Publishing restrictions for the value set
         /// </summary>
         /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
         [NotMapped]
@@ -1031,7 +1093,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// draft | active | retired
         /// </summary>
-        [FhirElement("status", InSummary=true, Order=140)]
+        [FhirElement("status", InSummary=true, Order=160)]
         [Cardinality(Min=1,Max=1)]
         [DataMember]
         public Code<Hl7.Fhir.Model.ValueSet.ValueSetStatus> StatusElement
@@ -1063,7 +1125,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// If for testing purposes, not real usage
         /// </summary>
-        [FhirElement("experimental", InSummary=true, Order=150)]
+        [FhirElement("experimental", InSummary=true, Order=170)]
         [DataMember]
         public Hl7.Fhir.Model.FhirBoolean ExperimentalElement
         {
@@ -1094,7 +1156,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Whether this is intended to be used with an extensible binding
         /// </summary>
-        [FhirElement("extensible", Order=160)]
+        [FhirElement("extensible", Order=180)]
         [DataMember]
         public Hl7.Fhir.Model.FhirBoolean ExtensibleElement
         {
@@ -1125,7 +1187,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Date for given status
         /// </summary>
-        [FhirElement("date", InSummary=true, Order=170)]
+        [FhirElement("date", InSummary=true, Order=190)]
         [DataMember]
         public Hl7.Fhir.Model.FhirDateTime DateElement
         {
@@ -1154,9 +1216,40 @@ namespace Hl7.Fhir.Model
         }
         
         /// <summary>
+        /// Fixed date for the version of all referenced code systems and value sets
+        /// </summary>
+        [FhirElement("stableDate", Order=200)]
+        [DataMember]
+        public Hl7.Fhir.Model.Date StableDateElement
+        {
+            get { return _StableDateElement; }
+            set { _StableDateElement = value; OnPropertyChanged("StableDateElement"); }
+        }
+        private Hl7.Fhir.Model.Date _StableDateElement;
+        
+        /// <summary>
+        /// Fixed date for the version of all referenced code systems and value sets
+        /// </summary>
+        /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        [NotMapped]
+        [IgnoreDataMemberAttribute]
+        public string StableDate
+        {
+            get { return StableDateElement != null ? StableDateElement.Value : null; }
+            set
+            {
+                if(value == null)
+                  StableDateElement = null; 
+                else
+                  StableDateElement = new Hl7.Fhir.Model.Date(value);
+                OnPropertyChanged("StableDate");
+            }
+        }
+        
+        /// <summary>
         /// When value set defines its own codes
         /// </summary>
-        [FhirElement("define", InSummary=true, Order=180)]
+        [FhirElement("define", InSummary=true, Order=210)]
         [DataMember]
         public Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent Define
         {
@@ -1168,7 +1261,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// When value set includes codes from elsewhere
         /// </summary>
-        [FhirElement("compose", Order=190)]
+        [FhirElement("compose", Order=220)]
         [DataMember]
         public Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent Compose
         {
@@ -1180,7 +1273,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// When value set is an expansion
         /// </summary>
-        [FhirElement("expansion", Order=200)]
+        [FhirElement("expansion", Order=230)]
         [DataMember]
         public Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent Expansion
         {

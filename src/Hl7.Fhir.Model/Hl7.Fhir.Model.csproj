@@ -59,6 +59,7 @@
     <Compile Include="Generated\Model\AppointmentResponse.cs" />
     <Compile Include="Generated\Model\Availability.cs" />
     <Compile Include="Generated\Model\Bindings.cs" />
+    <Compile Include="Generated\Model\CommonDataElement.cs" />
     <Compile Include="Generated\Model\ModelInfo.cs" />
     <Compile Include="Generated\Model\Address.cs" />
     <Compile Include="Generated\Model\Attachment.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Generated\Model\Narrative.cs" />
     <Compile Include="Generated\Model\Period.cs" />
     <Compile Include="Generated\Model\Quantity.cs" />
+    <Compile Include="Generated\Model\QuestionnaireAnswers.cs" />
     <Compile Include="Generated\Model\Range.cs" />
     <Compile Include="Generated\Model\Ratio.cs" />
     <Compile Include="Generated\Model\ResourceReference.cs" />
@@ -92,6 +94,7 @@
     <Compile Include="Generated\Model\FhirString.cs" />
     <Compile Include="Generated\Model\FhirUri.cs" />
     <Compile Include="Generated\Model\Slot.cs" />
+    <Compile Include="Generated\Model\Subscription.cs" />
     <Compile Include="Generated\Model\Uuid.cs" />
     <Compile Include="Generated\Model\XHtml.cs" />
     <Compile Include="Generated\Model\Resource.cs" />

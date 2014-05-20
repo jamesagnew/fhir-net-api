@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 
 /*
-  Copyright (c) 2011-2013, HL7, Inc.
+  Copyright (c) 2011-2014, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -36,12 +36,12 @@ using System.Runtime.Serialization;
 */
 
 //
-// Generated on Thu, Apr 24, 2014 12:29+0200 for FHIR v0.80
+// Generated on Tue, May 20, 2014 16:08+0200 for FHIR v0.2.1
 //
 namespace Hl7.Fhir.Model
 {
     /// <summary>
-    /// A statement of relationships from one set of concepts to one or more other concept systems
+    /// A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models
     /// </summary>
     [FhirType("ConceptMap", IsResource=true)]
     [DataContract]
@@ -100,43 +100,44 @@ namespace Hl7.Fhir.Model
             Disjoint,
         }
         
-        [FhirType("ConceptMapConceptMapComponent")]
+        [FhirType("ConceptMapElementComponent")]
         [DataContract]
-        public partial class ConceptMapConceptMapComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged
+        public partial class ConceptMapElementComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged
         {
             /// <summary>
-            /// System of the target
+            /// Code System (if value set crosses code systems)
             /// </summary>
-            [FhirElement("system", InSummary=true, Order=40)]
+            [FhirElement("codeSystem", InSummary=true, Order=40)]
+            [Cardinality(Min=1,Max=1)]
             [DataMember]
-            public Hl7.Fhir.Model.FhirUri SystemElement
+            public Hl7.Fhir.Model.FhirUri CodeSystemElement
             {
-                get { return _SystemElement; }
-                set { _SystemElement = value; OnPropertyChanged("SystemElement"); }
+                get { return _CodeSystemElement; }
+                set { _CodeSystemElement = value; OnPropertyChanged("CodeSystemElement"); }
             }
-            private Hl7.Fhir.Model.FhirUri _SystemElement;
+            private Hl7.Fhir.Model.FhirUri _CodeSystemElement;
             
             /// <summary>
-            /// System of the target
+            /// Code System (if value set crosses code systems)
             /// </summary>
             /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
             [NotMapped]
             [IgnoreDataMemberAttribute]
-            public System.Uri System
+            public System.Uri CodeSystem
             {
-                get { return SystemElement != null ? SystemElement.Value : null; }
+                get { return CodeSystemElement != null ? CodeSystemElement.Value : null; }
                 set
                 {
                     if(value == null)
-                      SystemElement = null; 
+                      CodeSystemElement = null; 
                     else
-                      SystemElement = new Hl7.Fhir.Model.FhirUri(value);
-                    OnPropertyChanged("System");
+                      CodeSystemElement = new Hl7.Fhir.Model.FhirUri(value);
+                    OnPropertyChanged("CodeSystem");
                 }
             }
             
             /// <summary>
-            /// Code that identifies the target concept
+            /// Identifies element being mapped
             /// </summary>
             [FhirElement("code", InSummary=true, Order=50)]
             [DataMember]
@@ -148,7 +149,102 @@ namespace Hl7.Fhir.Model
             private Hl7.Fhir.Model.Code _CodeElement;
             
             /// <summary>
-            /// Code that identifies the target concept
+            /// Identifies element being mapped
+            /// </summary>
+            /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+            [NotMapped]
+            [IgnoreDataMemberAttribute]
+            public string Code
+            {
+                get { return CodeElement != null ? CodeElement.Value : null; }
+                set
+                {
+                    if(value == null)
+                      CodeElement = null; 
+                    else
+                      CodeElement = new Hl7.Fhir.Model.Code(value);
+                    OnPropertyChanged("Code");
+                }
+            }
+            
+            /// <summary>
+            /// Other elements required for this mapping (from context)
+            /// </summary>
+            [FhirElement("dependsOn", InSummary=true, Order=60)]
+            [Cardinality(Min=0,Max=-1)]
+            [DataMember]
+            public List<Hl7.Fhir.Model.ConceptMap.OtherElementComponent> DependsOn
+            {
+                get { return _DependsOn; }
+                set { _DependsOn = value; OnPropertyChanged("DependsOn"); }
+            }
+            private List<Hl7.Fhir.Model.ConceptMap.OtherElementComponent> _DependsOn;
+            
+            /// <summary>
+            /// A concept from the target value set that this concept maps to
+            /// </summary>
+            [FhirElement("map", InSummary=true, Order=70)]
+            [Cardinality(Min=0,Max=-1)]
+            [DataMember]
+            public List<Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent> Map
+            {
+                get { return _Map; }
+                set { _Map = value; OnPropertyChanged("Map"); }
+            }
+            private List<Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent> _Map;
+            
+        }
+        
+        
+        [FhirType("ConceptMapElementMapComponent")]
+        [DataContract]
+        public partial class ConceptMapElementMapComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged
+        {
+            /// <summary>
+            /// System of the target (if necessary)
+            /// </summary>
+            [FhirElement("codeSystem", InSummary=true, Order=40)]
+            [DataMember]
+            public Hl7.Fhir.Model.FhirUri CodeSystemElement
+            {
+                get { return _CodeSystemElement; }
+                set { _CodeSystemElement = value; OnPropertyChanged("CodeSystemElement"); }
+            }
+            private Hl7.Fhir.Model.FhirUri _CodeSystemElement;
+            
+            /// <summary>
+            /// System of the target (if necessary)
+            /// </summary>
+            /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+            [NotMapped]
+            [IgnoreDataMemberAttribute]
+            public System.Uri CodeSystem
+            {
+                get { return CodeSystemElement != null ? CodeSystemElement.Value : null; }
+                set
+                {
+                    if(value == null)
+                      CodeSystemElement = null; 
+                    else
+                      CodeSystemElement = new Hl7.Fhir.Model.FhirUri(value);
+                    OnPropertyChanged("CodeSystem");
+                }
+            }
+            
+            /// <summary>
+            /// Code that identifies the target element
+            /// </summary>
+            [FhirElement("code", InSummary=true, Order=50)]
+            [DataMember]
+            public Hl7.Fhir.Model.Code CodeElement
+            {
+                get { return _CodeElement; }
+                set { _CodeElement = value; OnPropertyChanged("CodeElement"); }
+            }
+            private Hl7.Fhir.Model.Code _CodeElement;
+            
+            /// <summary>
+            /// Code that identifies the target element
             /// </summary>
             /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
             [NotMapped]
@@ -235,99 +331,99 @@ namespace Hl7.Fhir.Model
             [FhirElement("product", InSummary=true, Order=80)]
             [Cardinality(Min=0,Max=-1)]
             [DataMember]
-            public List<Hl7.Fhir.Model.ConceptMap.OtherConceptComponent> Product
+            public List<Hl7.Fhir.Model.ConceptMap.OtherElementComponent> Product
             {
                 get { return _Product; }
                 set { _Product = value; OnPropertyChanged("Product"); }
             }
-            private List<Hl7.Fhir.Model.ConceptMap.OtherConceptComponent> _Product;
+            private List<Hl7.Fhir.Model.ConceptMap.OtherElementComponent> _Product;
             
         }
         
         
-        [FhirType("OtherConceptComponent")]
+        [FhirType("OtherElementComponent")]
         [DataContract]
-        public partial class OtherConceptComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged
+        public partial class OtherElementComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged
         {
             /// <summary>
-            /// Reference to element/field/valueset provides the context
+            /// Reference to element/field/valueset mapping depends on
             /// </summary>
-            [FhirElement("concept", InSummary=true, Order=40)]
+            [FhirElement("element", InSummary=true, Order=40)]
             [Cardinality(Min=1,Max=1)]
             [DataMember]
-            public Hl7.Fhir.Model.FhirUri ConceptElement
+            public Hl7.Fhir.Model.FhirUri ElementElement
             {
-                get { return _ConceptElement; }
-                set { _ConceptElement = value; OnPropertyChanged("ConceptElement"); }
+                get { return _ElementElement; }
+                set { _ElementElement = value; OnPropertyChanged("ElementElement"); }
             }
-            private Hl7.Fhir.Model.FhirUri _ConceptElement;
+            private Hl7.Fhir.Model.FhirUri _ElementElement;
             
             /// <summary>
-            /// Reference to element/field/valueset provides the context
+            /// Reference to element/field/valueset mapping depends on
             /// </summary>
             /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
             [NotMapped]
             [IgnoreDataMemberAttribute]
-            public System.Uri Concept
+            public System.Uri Element
             {
-                get { return ConceptElement != null ? ConceptElement.Value : null; }
+                get { return ElementElement != null ? ElementElement.Value : null; }
                 set
                 {
                     if(value == null)
-                      ConceptElement = null; 
+                      ElementElement = null; 
                     else
-                      ConceptElement = new Hl7.Fhir.Model.FhirUri(value);
-                    OnPropertyChanged("Concept");
+                      ElementElement = new Hl7.Fhir.Model.FhirUri(value);
+                    OnPropertyChanged("Element");
                 }
             }
             
             /// <summary>
-            /// System for a concept in the referenced concept
+            /// Code System (if necessary)
             /// </summary>
-            [FhirElement("system", InSummary=true, Order=50)]
+            [FhirElement("codeSystem", InSummary=true, Order=50)]
             [Cardinality(Min=1,Max=1)]
             [DataMember]
-            public Hl7.Fhir.Model.FhirUri SystemElement
+            public Hl7.Fhir.Model.FhirUri CodeSystemElement
             {
-                get { return _SystemElement; }
-                set { _SystemElement = value; OnPropertyChanged("SystemElement"); }
+                get { return _CodeSystemElement; }
+                set { _CodeSystemElement = value; OnPropertyChanged("CodeSystemElement"); }
             }
-            private Hl7.Fhir.Model.FhirUri _SystemElement;
+            private Hl7.Fhir.Model.FhirUri _CodeSystemElement;
             
             /// <summary>
-            /// System for a concept in the referenced concept
+            /// Code System (if necessary)
             /// </summary>
             /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
             [NotMapped]
             [IgnoreDataMemberAttribute]
-            public System.Uri System
+            public System.Uri CodeSystem
             {
-                get { return SystemElement != null ? SystemElement.Value : null; }
+                get { return CodeSystemElement != null ? CodeSystemElement.Value : null; }
                 set
                 {
                     if(value == null)
-                      SystemElement = null; 
+                      CodeSystemElement = null; 
                     else
-                      SystemElement = new Hl7.Fhir.Model.FhirUri(value);
-                    OnPropertyChanged("System");
+                      CodeSystemElement = new Hl7.Fhir.Model.FhirUri(value);
+                    OnPropertyChanged("CodeSystem");
                 }
             }
             
             /// <summary>
-            /// Code for a concept in the referenced concept
+            /// Value of the referenced element
             /// </summary>
             [FhirElement("code", InSummary=true, Order=60)]
             [Cardinality(Min=1,Max=1)]
             [DataMember]
-            public Hl7.Fhir.Model.Code CodeElement
+            public Hl7.Fhir.Model.FhirString CodeElement
             {
                 get { return _CodeElement; }
                 set { _CodeElement = value; OnPropertyChanged("CodeElement"); }
             }
-            private Hl7.Fhir.Model.Code _CodeElement;
+            private Hl7.Fhir.Model.FhirString _CodeElement;
             
             /// <summary>
-            /// Code for a concept in the referenced concept
+            /// Value of the referenced element
             /// </summary>
             /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
             [NotMapped]
@@ -340,106 +436,10 @@ namespace Hl7.Fhir.Model
                     if(value == null)
                       CodeElement = null; 
                     else
-                      CodeElement = new Hl7.Fhir.Model.Code(value);
+                      CodeElement = new Hl7.Fhir.Model.FhirString(value);
                     OnPropertyChanged("Code");
                 }
             }
-            
-        }
-        
-        
-        [FhirType("ConceptMapConceptComponent")]
-        [DataContract]
-        public partial class ConceptMapConceptComponent : Hl7.Fhir.Model.Element, System.ComponentModel.INotifyPropertyChanged
-        {
-            /// <summary>
-            /// System that defines the concept being mapped
-            /// </summary>
-            [FhirElement("system", InSummary=true, Order=40)]
-            [Cardinality(Min=1,Max=1)]
-            [DataMember]
-            public Hl7.Fhir.Model.FhirUri SystemElement
-            {
-                get { return _SystemElement; }
-                set { _SystemElement = value; OnPropertyChanged("SystemElement"); }
-            }
-            private Hl7.Fhir.Model.FhirUri _SystemElement;
-            
-            /// <summary>
-            /// System that defines the concept being mapped
-            /// </summary>
-            /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-            [NotMapped]
-            [IgnoreDataMemberAttribute]
-            public System.Uri System
-            {
-                get { return SystemElement != null ? SystemElement.Value : null; }
-                set
-                {
-                    if(value == null)
-                      SystemElement = null; 
-                    else
-                      SystemElement = new Hl7.Fhir.Model.FhirUri(value);
-                    OnPropertyChanged("System");
-                }
-            }
-            
-            /// <summary>
-            /// Identifies concept being mapped
-            /// </summary>
-            [FhirElement("code", InSummary=true, Order=50)]
-            [DataMember]
-            public Hl7.Fhir.Model.Code CodeElement
-            {
-                get { return _CodeElement; }
-                set { _CodeElement = value; OnPropertyChanged("CodeElement"); }
-            }
-            private Hl7.Fhir.Model.Code _CodeElement;
-            
-            /// <summary>
-            /// Identifies concept being mapped
-            /// </summary>
-            /// <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-            [NotMapped]
-            [IgnoreDataMemberAttribute]
-            public string Code
-            {
-                get { return CodeElement != null ? CodeElement.Value : null; }
-                set
-                {
-                    if(value == null)
-                      CodeElement = null; 
-                    else
-                      CodeElement = new Hl7.Fhir.Model.Code(value);
-                    OnPropertyChanged("Code");
-                }
-            }
-            
-            /// <summary>
-            /// Other concepts required for this mapping (from context)
-            /// </summary>
-            [FhirElement("dependsOn", InSummary=true, Order=60)]
-            [Cardinality(Min=0,Max=-1)]
-            [DataMember]
-            public List<Hl7.Fhir.Model.ConceptMap.OtherConceptComponent> DependsOn
-            {
-                get { return _DependsOn; }
-                set { _DependsOn = value; OnPropertyChanged("DependsOn"); }
-            }
-            private List<Hl7.Fhir.Model.ConceptMap.OtherConceptComponent> _DependsOn;
-            
-            /// <summary>
-            /// A concept from the target value set that this concept maps to
-            /// </summary>
-            [FhirElement("map", InSummary=true, Order=70)]
-            [Cardinality(Min=0,Max=-1)]
-            [DataMember]
-            public List<Hl7.Fhir.Model.ConceptMap.ConceptMapConceptMapComponent> Map
-            {
-                get { return _Map; }
-                set { _Map = value; OnPropertyChanged("Map"); }
-            }
-            private List<Hl7.Fhir.Model.ConceptMap.ConceptMapConceptMapComponent> _Map;
             
         }
         
@@ -739,45 +739,45 @@ namespace Hl7.Fhir.Model
         }
         
         /// <summary>
-        /// Identifies the source value set which is being mapped
+        /// Identifies the source of the concepts which are being mapped
         /// </summary>
-        [FhirElement("source", InSummary=true, Order=170)]
-        [References("ValueSet")]
+        [FhirElement("source", InSummary=true, Order=170, Choice=ChoiceType.DatatypeChoice)]
+        [AllowedTypes(typeof(Hl7.Fhir.Model.FhirUri),typeof(Hl7.Fhir.Model.ResourceReference))]
         [Cardinality(Min=1,Max=1)]
         [DataMember]
-        public Hl7.Fhir.Model.ResourceReference Source
+        public Hl7.Fhir.Model.Element Source
         {
             get { return _Source; }
             set { _Source = value; OnPropertyChanged("Source"); }
         }
-        private Hl7.Fhir.Model.ResourceReference _Source;
+        private Hl7.Fhir.Model.Element _Source;
         
         /// <summary>
         /// Provides context to the mappings
         /// </summary>
-        [FhirElement("target", InSummary=true, Order=180)]
-        [References("ValueSet")]
+        [FhirElement("target", InSummary=true, Order=180, Choice=ChoiceType.DatatypeChoice)]
+        [AllowedTypes(typeof(Hl7.Fhir.Model.FhirUri),typeof(Hl7.Fhir.Model.ResourceReference))]
         [Cardinality(Min=1,Max=1)]
         [DataMember]
-        public Hl7.Fhir.Model.ResourceReference Target
+        public Hl7.Fhir.Model.Element Target
         {
             get { return _Target; }
             set { _Target = value; OnPropertyChanged("Target"); }
         }
-        private Hl7.Fhir.Model.ResourceReference _Target;
+        private Hl7.Fhir.Model.Element _Target;
         
         /// <summary>
-        /// Mappings for a concept from the source valueset
+        /// Mappings for a concept from the source set
         /// </summary>
-        [FhirElement("concept", Order=190)]
+        [FhirElement("element", Order=190)]
         [Cardinality(Min=0,Max=-1)]
         [DataMember]
-        public List<Hl7.Fhir.Model.ConceptMap.ConceptMapConceptComponent> Concept
+        public List<Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent> Element
         {
-            get { return _Concept; }
-            set { _Concept = value; OnPropertyChanged("Concept"); }
+            get { return _Element; }
+            set { _Element = value; OnPropertyChanged("Element"); }
         }
-        private List<Hl7.Fhir.Model.ConceptMap.ConceptMapConceptComponent> _Concept;
+        private List<Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent> _Element;
         
     }
     

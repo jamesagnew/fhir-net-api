@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 
 /*
-  Copyright (c) 2011-2013, HL7, Inc.
+  Copyright (c) 2011-2014, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -36,7 +36,7 @@ using System.Runtime.Serialization;
 */
 
 //
-// Generated on Thu, Apr 24, 2014 12:29+0200 for FHIR v0.80
+// Generated on Tue, May 20, 2014 16:08+0200 for FHIR v0.2.1
 //
 namespace Hl7.Fhir.Model
 {
@@ -520,9 +520,22 @@ namespace Hl7.Fhir.Model
         private List<Hl7.Fhir.Model.Encounter.EncounterParticipantComponent> _Participant;
         
         /// <summary>
+        /// The appointment that scheduled this encounter
+        /// </summary>
+        [FhirElement("fulfills", InSummary=true, Order=130)]
+        [References("Appointment")]
+        [DataMember]
+        public Hl7.Fhir.Model.ResourceReference Fulfills
+        {
+            get { return _Fulfills; }
+            set { _Fulfills = value; OnPropertyChanged("Fulfills"); }
+        }
+        private Hl7.Fhir.Model.ResourceReference _Fulfills;
+        
+        /// <summary>
         /// The start and end time of the encounter
         /// </summary>
-        [FhirElement("period", Order=130)]
+        [FhirElement("period", Order=140)]
         [DataMember]
         public Hl7.Fhir.Model.Period Period
         {
@@ -534,7 +547,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Quantity of time the encounter lasted
         /// </summary>
-        [FhirElement("length", Order=140)]
+        [FhirElement("length", Order=150)]
         [DataMember]
         public Hl7.Fhir.Model.Duration Length
         {
@@ -546,7 +559,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Reason the encounter takes place (code)
         /// </summary>
-        [FhirElement("reason", InSummary=true, Order=150)]
+        [FhirElement("reason", InSummary=true, Order=160)]
         [DataMember]
         public Hl7.Fhir.Model.CodeableConcept Reason
         {
@@ -558,7 +571,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Reason the encounter takes place (resource)
         /// </summary>
-        [FhirElement("indication", Order=160)]
+        [FhirElement("indication", Order=170)]
         [References()]
         [DataMember]
         public Hl7.Fhir.Model.ResourceReference Indication
@@ -571,7 +584,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Indicates the urgency of the encounter
         /// </summary>
-        [FhirElement("priority", Order=170)]
+        [FhirElement("priority", Order=180)]
         [DataMember]
         public Hl7.Fhir.Model.CodeableConcept Priority
         {
@@ -583,7 +596,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Details about an admission to a clinic
         /// </summary>
-        [FhirElement("hospitalization", Order=180)]
+        [FhirElement("hospitalization", Order=190)]
         [DataMember]
         public Hl7.Fhir.Model.Encounter.EncounterHospitalizationComponent Hospitalization
         {
@@ -595,7 +608,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// List of locations the patient has been at
         /// </summary>
-        [FhirElement("location", Order=190)]
+        [FhirElement("location", Order=200)]
         [Cardinality(Min=0,Max=-1)]
         [DataMember]
         public List<Hl7.Fhir.Model.Encounter.EncounterLocationComponent> Location
@@ -608,7 +621,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Department or team providing care
         /// </summary>
-        [FhirElement("serviceProvider", Order=200)]
+        [FhirElement("serviceProvider", Order=210)]
         [References("Organization")]
         [DataMember]
         public Hl7.Fhir.Model.ResourceReference ServiceProvider
@@ -621,7 +634,7 @@ namespace Hl7.Fhir.Model
         /// <summary>
         /// Another Encounter this encounter is part of
         /// </summary>
-        [FhirElement("partOf", Order=210)]
+        [FhirElement("partOf", Order=220)]
         [References("Encounter")]
         [DataMember]
         public Hl7.Fhir.Model.ResourceReference PartOf

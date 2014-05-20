@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-  Copyright (c) 2011-2013, HL7, Inc.
+  Copyright (c) 2011-2014, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -27,9 +27,9 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Thu, Apr 24, 2014 12:29+0200 for FHIR v0.80 
+  Generated on Tue, May 20, 2014 16:08+0200 for FHIR v0.2.1 
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="0.80">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="0.2.1">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
   <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
   <xs:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="fhir-xhtml.xsd"/>
@@ -280,19 +280,9 @@
 
   <xs:simpleType name="ResourceType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Provenance">
-        <xs:annotation>
-          <xs:documentation>Provenance information that describes the activity that led to the creation of a set of resources. This information can be used to help determine their reliability or trace where the information in them came from. The focus of the provenance resource is record keeping, audit and traceability, and not explicit statements of clinical significance.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="Condition">
         <xs:annotation>
           <xs:documentation>Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a Diagnosis during an Encounter; populating a problem List or a Summary Statement, such as a Discharge Summary.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="CarePlan">
-        <xs:annotation>
-          <xs:documentation>Describes the intention of how one or more practitioners intend to deliver care for a particular patient for a period of time, possibly limited to care for a specific condition or set of conditions.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Supply">
@@ -300,39 +290,9 @@
           <xs:documentation>A supply - a  request for something, and provision of what is supplied.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Device">
-        <xs:annotation>
-          <xs:documentation>This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Query">
-        <xs:annotation>
-          <xs:documentation>A description of a query with a set of parameters.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Order">
-        <xs:annotation>
-          <xs:documentation>A request to perform an action.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="Organization">
         <xs:annotation>
           <xs:documentation>A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Procedure">
-        <xs:annotation>
-          <xs:documentation>An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Substance">
-        <xs:annotation>
-          <xs:documentation>A homogeneous material with a definite composition.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="DiagnosticReport">
-        <xs:annotation>
-          <xs:documentation>The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Group">
@@ -345,24 +305,14 @@
           <xs:documentation>A value set specifies a set of codes drawn from one or more code systems.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Medication">
-        <xs:annotation>
-          <xs:documentation>Primarily used for identification and definition of Medication, but also covers ingredients and packaging.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="MessageHeader">
-        <xs:annotation>
-          <xs:documentation>The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="ImmunizationRecommendation">
         <xs:annotation>
           <xs:documentation>A patient's point-of-time immunization status and recommendation with optional supporting justification.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="DocumentManifest">
+      <xs:enumeration value="Appointment">
         <xs:annotation>
-          <xs:documentation>A manifest that defines a set of documents.</xs:documentation>
+          <xs:documentation>(informative) A scheduled appointment for a patient and/or practitioner(s) where a service may take place.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="MedicationDispense">
@@ -375,21 +325,14 @@
           <xs:documentation>An order for both supply of the medication and the instructions for administration of the medicine to a patient.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="MedicationAdministration">
+      <xs:enumeration value="Slot">
         <xs:annotation>
-          <xs:documentation>Describes the event of a patient being given a dose of a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.
-
-Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.</xs:documentation>
+          <xs:documentation>(informative) A slot of time on a schedule that may be available for booking appointments.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Encounter">
+      <xs:enumeration value="AppointmentResponse">
         <xs:annotation>
-          <xs:documentation>An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="SecurityEvent">
-        <xs:annotation>
-          <xs:documentation>A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.</xs:documentation>
+          <xs:documentation>(informative) A response to a scheduled appointment for a patient and/or practitioner(s).</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="MedicationStatement">
@@ -397,24 +340,14 @@ Related resources tie this event to the authorizing prescription, and the specif
           <xs:documentation>A record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient or another clinician.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="List">
-        <xs:annotation>
-          <xs:documentation>A set of information summarized from a list of other resources.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Questionnaire">
-        <xs:annotation>
-          <xs:documentation>A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="Composition">
         <xs:annotation>
           <xs:documentation>A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="DeviceObservationReport">
+      <xs:enumeration value="Questionnaire">
         <xs:annotation>
-          <xs:documentation>Describes the data produced by a device at a point in time.</xs:documentation>
+          <xs:documentation>A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="OperationOutcome">
@@ -432,11 +365,6 @@ Related resources tie this event to the authorizing prescription, and the specif
           <xs:documentation>A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="FamilyHistory">
-        <xs:annotation>
-          <xs:documentation>Significant health events and conditions for people related to the subject relevant in the context of care for the subject.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="Other">
         <xs:annotation>
           <xs:documentation>Other is a conformant for handling resource concepts not yet defined for FHIR or outside HL7's scope of interest.</xs:documentation>
@@ -445,21 +373,6 @@ Related resources tie this event to the authorizing prescription, and the specif
       <xs:enumeration value="Profile">
         <xs:annotation>
           <xs:documentation>A Resource Profile - a statement of use of one or more FHIR Resources.  It may include constraints on Resources and Data Types, Terminology Binding Statements and Extension Definitions.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Location">
-        <xs:annotation>
-          <xs:documentation>Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Observation">
-        <xs:annotation>
-          <xs:documentation>Measurements and simple assertions made about a patient, device or other subject.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="AllergyIntolerance">
-        <xs:annotation>
-          <xs:documentation>Indicates the patient has a susceptibility to an adverse reaction upon exposure to a specified substance.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="DocumentReference">
@@ -472,6 +385,148 @@ Related resources tie this event to the authorizing prescription, and the specif
           <xs:documentation>Immunization event information.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="Subscription">
+        <xs:annotation>
+          <xs:documentation>Todo.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OrderResponse">
+        <xs:annotation>
+          <xs:documentation>A response to an order.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ConceptMap">
+        <xs:annotation>
+          <xs:documentation>A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ImagingStudy">
+        <xs:annotation>
+          <xs:documentation>Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Practitioner">
+        <xs:annotation>
+          <xs:documentation>A person who is directly or indirectly involved in the provisioning of healthcare.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CarePlan">
+        <xs:annotation>
+          <xs:documentation>Describes the intention of how one or more practitioners intend to deliver care for a particular patient for a period of time, possibly limited to care for a specific condition or set of conditions.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Provenance">
+        <xs:annotation>
+          <xs:documentation>Provenance information that describes the activity that led to the creation of a set of resources. This information can be used to help determine their reliability or trace where the information in them came from. The focus of the provenance resource is record keeping, audit and traceability, and not explicit statements of clinical significance.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Device">
+        <xs:annotation>
+          <xs:documentation>This resource identifies an instance of a manufactured thing that is used in the provision of healthcare without being substantially changed through that activity. The device may be a machine, an insert, a computer, an application, etc. This includes durable (reusable) medical equipment as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Query">
+        <xs:annotation>
+          <xs:documentation>A description of a query with a set of parameters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Order">
+        <xs:annotation>
+          <xs:documentation>A request to perform an action.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Procedure">
+        <xs:annotation>
+          <xs:documentation>An action that is performed on a patient. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Substance">
+        <xs:annotation>
+          <xs:documentation>A homogeneous material with a definite composition.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DiagnosticReport">
+        <xs:annotation>
+          <xs:documentation>The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretation, and formatted representation of diagnostic reports.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Medication">
+        <xs:annotation>
+          <xs:documentation>Primarily used for identification and definition of Medication, but also covers ingredients and packaging.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MessageHeader">
+        <xs:annotation>
+          <xs:documentation>The header for a message exchange that is either requesting or responding to an action.  The resource(s) that are the subject of the action as well as other Information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DocumentManifest">
+        <xs:annotation>
+          <xs:documentation>A manifest that defines a set of documents.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Availability">
+        <xs:annotation>
+          <xs:documentation>(informative) A container for slot(s) of time that may be available for booking appointments.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MedicationAdministration">
+        <xs:annotation>
+          <xs:documentation>Describes the event of a patient being given a dose of a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.
+
+Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="QuestionnaireAnswers">
+        <xs:annotation>
+          <xs:documentation>A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Encounter">
+        <xs:annotation>
+          <xs:documentation>An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SecurityEvent">
+        <xs:annotation>
+          <xs:documentation>A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="List">
+        <xs:annotation>
+          <xs:documentation>A set of information summarized from a list of other resources.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DeviceObservationReport">
+        <xs:annotation>
+          <xs:documentation>Describes the data produced by a device at a point in time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FamilyHistory">
+        <xs:annotation>
+          <xs:documentation>Significant health events and conditions for people related to the subject relevant in the context of care for the subject.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CommonDataElement">
+        <xs:annotation>
+          <xs:documentation>The formal description of a single piece of information that can be gathered and reported.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Location">
+        <xs:annotation>
+          <xs:documentation>Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AllergyIntolerance">
+        <xs:annotation>
+          <xs:documentation>Indicates the patient has a susceptibility to an adverse reaction upon exposure to a specified substance.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Observation">
+        <xs:annotation>
+          <xs:documentation>Measurements and simple assertions made about a patient, device or other subject.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="RelatedPerson">
         <xs:annotation>
           <xs:documentation>Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.</xs:documentation>
@@ -482,19 +537,14 @@ Related resources tie this event to the authorizing prescription, and the specif
           <xs:documentation>Sample for analysis.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="OrderResponse">
-        <xs:annotation>
-          <xs:documentation>A response to an order.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="Alert">
         <xs:annotation>
           <xs:documentation>Prospective warnings of potential issues when providing care to the patient.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="ConceptMap">
+      <xs:enumeration value="Namespace">
         <xs:annotation>
-          <xs:documentation>A statement of relationships from one set of concepts to one or more other concept systems.</xs:documentation>
+          <xs:documentation>A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Patient">
@@ -502,19 +552,9 @@ Related resources tie this event to the authorizing prescription, and the specif
           <xs:documentation>Demographics and other administrative information about a person or animal receiving care or other health-related services.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="Practitioner">
-        <xs:annotation>
-          <xs:documentation>A person who is directly or indirectly involved in the provisioning of healthcare.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="AdverseReaction">
         <xs:annotation>
           <xs:documentation>Records an unexpected reaction suspected to be related to the exposure of the reaction subject to a substance.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="ImagingStudy">
-        <xs:annotation>
-          <xs:documentation>Manifest of a set of images produced in study. The set of images may include every image in the study, or it may be an incomplete sample, such as a list of key images.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="DiagnosticOrder">
@@ -527,53 +567,61 @@ Related resources tie this event to the authorizing prescription, and the specif
   <xs:complexType name="Resource.Inline">
     <xs:choice minOccurs="1" maxOccurs="1">
       <xs:element ref="Binary"/>
-      <xs:element ref="Provenance"/>
       <xs:element ref="Condition"/>
-      <xs:element ref="CarePlan"/>
       <xs:element ref="Supply"/>
-      <xs:element ref="Device"/>
-      <xs:element ref="Query"/>
-      <xs:element ref="Order"/>
       <xs:element ref="Organization"/>
-      <xs:element ref="Procedure"/>
-      <xs:element ref="Substance"/>
-      <xs:element ref="DiagnosticReport"/>
       <xs:element ref="Group"/>
       <xs:element ref="ValueSet"/>
-      <xs:element ref="Medication"/>
-      <xs:element ref="MessageHeader"/>
       <xs:element ref="ImmunizationRecommendation"/>
-      <xs:element ref="DocumentManifest"/>
+      <xs:element ref="Appointment"/>
       <xs:element ref="MedicationDispense"/>
       <xs:element ref="MedicationPrescription"/>
-      <xs:element ref="MedicationAdministration"/>
-      <xs:element ref="Encounter"/>
-      <xs:element ref="SecurityEvent"/>
+      <xs:element ref="Slot"/>
+      <xs:element ref="AppointmentResponse"/>
       <xs:element ref="MedicationStatement"/>
-      <xs:element ref="List"/>
-      <xs:element ref="Questionnaire"/>
       <xs:element ref="Composition"/>
-      <xs:element ref="DeviceObservationReport"/>
+      <xs:element ref="Questionnaire"/>
       <xs:element ref="OperationOutcome"/>
       <xs:element ref="Conformance"/>
       <xs:element ref="Media"/>
-      <xs:element ref="FamilyHistory"/>
       <xs:element ref="Other"/>
       <xs:element ref="Profile"/>
-      <xs:element ref="Location"/>
-      <xs:element ref="Observation"/>
-      <xs:element ref="AllergyIntolerance"/>
       <xs:element ref="DocumentReference"/>
       <xs:element ref="Immunization"/>
+      <xs:element ref="Subscription"/>
+      <xs:element ref="OrderResponse"/>
+      <xs:element ref="ConceptMap"/>
+      <xs:element ref="ImagingStudy"/>
+      <xs:element ref="Practitioner"/>
+      <xs:element ref="CarePlan"/>
+      <xs:element ref="Provenance"/>
+      <xs:element ref="Device"/>
+      <xs:element ref="Query"/>
+      <xs:element ref="Order"/>
+      <xs:element ref="Procedure"/>
+      <xs:element ref="Substance"/>
+      <xs:element ref="DiagnosticReport"/>
+      <xs:element ref="Medication"/>
+      <xs:element ref="MessageHeader"/>
+      <xs:element ref="DocumentManifest"/>
+      <xs:element ref="Availability"/>
+      <xs:element ref="MedicationAdministration"/>
+      <xs:element ref="QuestionnaireAnswers"/>
+      <xs:element ref="Encounter"/>
+      <xs:element ref="SecurityEvent"/>
+      <xs:element ref="List"/>
+      <xs:element ref="DeviceObservationReport"/>
+      <xs:element ref="FamilyHistory"/>
+      <xs:element ref="CommonDataElement"/>
+      <xs:element ref="Location"/>
+      <xs:element ref="AllergyIntolerance"/>
+      <xs:element ref="Observation"/>
       <xs:element ref="RelatedPerson"/>
       <xs:element ref="Specimen"/>
-      <xs:element ref="OrderResponse"/>
       <xs:element ref="Alert"/>
-      <xs:element ref="ConceptMap"/>
+      <xs:element ref="Namespace"/>
       <xs:element ref="Patient"/>
-      <xs:element ref="Practitioner"/>
       <xs:element ref="AdverseReaction"/>
-      <xs:element ref="ImagingStudy"/>
       <xs:element ref="DiagnosticOrder"/>
     </xs:choice>
   </xs:complexType>
@@ -1752,6 +1800,81 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
+  <xs:simpleType name="QuestionnaireStatus-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="draft">
+        <xs:annotation>
+          <xs:documentation>This Questionnaire is not ready for official use.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="published">
+        <xs:annotation>
+          <xs:documentation>This Questionnaire is ready for use.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="retired">
+        <xs:annotation>
+          <xs:documentation>This Questionnaire should no longer be used to gather data.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="QuestionnaireStatus">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+       <xs:extension base="Element">
+         <xs:attribute name="value" type="QuestionnaireStatus-list" use="optional"/>
+       </xs:extension>
+     </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="FilterOperator-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="=">
+        <xs:annotation>
+          <xs:documentation>The property value has the concept specified by the value.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="is-a">
+        <xs:annotation>
+          <xs:documentation>The property value has a concept that has an is-a relationship with the value.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="is-not-a">
+        <xs:annotation>
+          <xs:documentation>The property value has a concept that does not have an is-a relationship with the value.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="regex">
+        <xs:annotation>
+          <xs:documentation>The property value representation matches the regex specified in the value.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="in">
+        <xs:annotation>
+          <xs:documentation>The property value is in the set of codes or concepts identified by the value.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="not in">
+        <xs:annotation>
+          <xs:documentation>The property value is not in the set of codes or concepts identified by the value.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FilterOperator">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+       <xs:extension base="Element">
+         <xs:attribute name="value" type="FilterOperator-list" use="optional"/>
+       </xs:extension>
+     </xs:complexContent>
+  </xs:complexType>
   <xs:simpleType name="DocumentReferenceStatus-list">
     <xs:restriction base="xs:string">
       <xs:enumeration value="current">
@@ -1829,6 +1952,36 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
     <xs:complexContent>
        <xs:extension base="Element">
          <xs:attribute name="value" type="SearchParamType-list" use="optional"/>
+       </xs:extension>
+     </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="BindingConformance-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="required">
+        <xs:annotation>
+          <xs:documentation>Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="preferred">
+        <xs:annotation>
+          <xs:documentation>For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="example">
+        <xs:annotation>
+          <xs:documentation>The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="BindingConformance">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+       <xs:extension base="Element">
+         <xs:attribute name="value" type="BindingConformance-list" use="optional"/>
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
@@ -2328,6 +2481,363 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="Appointment" type="Appointment">
+    <xs:annotation>
+      <xs:documentation>(informative) A scheduled appointment for a patient and/or practitioner(s) where a service may take place.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Appointment">
+    <xs:annotation>
+      <xs:documentation>(informative) A scheduled appointment for a patient and/or practitioner(s) where a service may take place.</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Resource">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation>This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="priority" minOccurs="0" maxOccurs="1" type="integer">
+            <xs:annotation>
+              <xs:documentation>The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority) (Need to change back to CodeableConcept).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="0" maxOccurs="1" type="code">
+            <xs:annotation>
+              <xs:documentation>Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>The type of appointments that is being booked (ideally this would be an identifiable service - which is at a location, rather than the location itself).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reason" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>The reason that this appointment is being scheduled, this is more clinical than administrative.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="start" minOccurs="1" maxOccurs="1" type="instant">
+            <xs:annotation>
+              <xs:documentation>Date/Time that the appointment is to take place.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="end" minOccurs="1" maxOccurs="1" type="instant">
+            <xs:annotation>
+              <xs:documentation>Date/Time that the appointment is to conclude.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="slot" minOccurs="0" maxOccurs="unbounded" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="location" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>The primary location that this appointment is to take place.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="comment" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Additional comments about the appointment.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="order" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>An Order that lead to the creation of this appointment.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="participant" type="Appointment.Participant" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>List of participants involved in the appointment.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="lastModifiedBy" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>Who recorded the appointment.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="lastModified" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation>Date when the appointment was recorded.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Appointment.Participant">
+    <xs:annotation>
+      <xs:documentation>(informative) A scheduled appointment for a patient and/or practitioner(s) where a service may take place.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>Role of participant in the appointment.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="individual" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="required" minOccurs="0" maxOccurs="1" type="ParticipantRequired">
+            <xs:annotation>
+              <xs:documentation>Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="ParticipationStatus">
+            <xs:annotation>
+              <xs:documentation>Participation status of the Patient.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ParticipantRequired-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="required">
+        <xs:annotation>
+          <xs:documentation>The participant is required to attend the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="optional">
+        <xs:annotation>
+          <xs:documentation>The participant may optionally attend the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="information-only">
+        <xs:annotation>
+          <xs:documentation>The participant is not required to attend the appointment (appointment is about them, not for them).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ParticipantRequired">
+    <xs:annotation>
+      <xs:documentation>Is the Participant required to attend the appointment</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="ParticipantRequired-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ParticipationStatus-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="accepted">
+        <xs:annotation>
+          <xs:documentation>The participant has accepted the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="declined">
+        <xs:annotation>
+          <xs:documentation>The participant has declined the appointment and will not participate in the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="tentative">
+        <xs:annotation>
+          <xs:documentation>The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="in-process">
+        <xs:annotation>
+          <xs:documentation>The participant has started the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="completed">
+        <xs:annotation>
+          <xs:documentation>The participant's involvement in the appointment has been completed.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="needs-action">
+        <xs:annotation>
+          <xs:documentation>The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ParticipationStatus">
+    <xs:annotation>
+      <xs:documentation>The Participation status of an appointment</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="ParticipationStatus-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AppointmentResponse" type="AppointmentResponse">
+    <xs:annotation>
+      <xs:documentation>(informative) A response to a scheduled appointment for a patient and/or practitioner(s).</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AppointmentResponse">
+    <xs:annotation>
+      <xs:documentation>(informative) A response to a scheduled appointment for a patient and/or practitioner(s).</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Resource">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation>This records identifiers associated with this appointment concern that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="appointment" minOccurs="1" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>Parent appointment that this response is replying to.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="participantType" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>Role of participant in the appointment.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="individual" minOccurs="0" maxOccurs="unbounded" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>A Person of device that is participating in the appointment, usually Practitioner, Patient, RelatedPerson or Device.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="participantStatus" minOccurs="1" maxOccurs="1" type="ParticipantStatus">
+            <xs:annotation>
+              <xs:documentation>Participation status of the Patient.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="comment" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Additional comments about the appointment.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="start" minOccurs="0" maxOccurs="1" type="instant">
+            <xs:annotation>
+              <xs:documentation>Date/Time that the appointment is to take place.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="end" minOccurs="0" maxOccurs="1" type="instant">
+            <xs:annotation>
+              <xs:documentation>Date/Time that the appointment is to conclude.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="lastModifiedBy" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>Who recorded the appointment response.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="lastModified" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation>Date when the response was recorded or last updated.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ParticipantStatus-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="accepted">
+        <xs:annotation>
+          <xs:documentation>The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="declined">
+        <xs:annotation>
+          <xs:documentation>The appointment participant has declined the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="tentative">
+        <xs:annotation>
+          <xs:documentation>The appointment participant has tentatively accepted the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="in-process">
+        <xs:annotation>
+          <xs:documentation>The participant has in-process the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="completed">
+        <xs:annotation>
+          <xs:documentation>The participant has completed the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="needs-action">
+        <xs:annotation>
+          <xs:documentation>This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ParticipantStatus">
+    <xs:annotation>
+      <xs:documentation>The Participation status of an appointment</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="ParticipantStatus-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Availability" type="Availability">
+    <xs:annotation>
+      <xs:documentation>(informative) A container for slot(s) of time that may be available for booking appointments.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Availability">
+    <xs:annotation>
+      <xs:documentation>(informative) A container for slot(s) of time that may be available for booking appointments.</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Resource">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation>External Ids for this item.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="type" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>The type(s) of appointments that can be booked into slots attached to this availability resource (ideally this would be an identifiable service - which is at a location, rather than the location itself). (This may be over-ridden by a slot itself).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="individual" minOccurs="1" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>The resource this availability resource is providing availability information for. These are expected to usually be one of Location, Practitioner, Device, Patient or RelatedPerson.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="planningHorizon" minOccurs="0" maxOccurs="1" type="Period">
+            <xs:annotation>
+              <xs:documentation>The period of time that the slots that are attached to this availability resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a &quot;template&quot; for planning outside these dates.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="comment" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="lastModified" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation>When this availability was created, or last revised.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="CarePlan" type="CarePlan">
     <xs:annotation>
       <xs:documentation>Describes the intention of how one or more practitioners intend to deliver care for a particular patient for a period of time, possibly limited to care for a specific condition or set of conditions.</xs:documentation>
@@ -2712,6 +3222,242 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="CommonDataElement" type="CommonDataElement">
+    <xs:annotation>
+      <xs:documentation>The formal description of a single piece of information that can be gathered and reported.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CommonDataElement">
+    <xs:annotation>
+      <xs:documentation>The formal description of a single piece of information that can be gathered and reported.</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Resource">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The identifier that is used to identify this observation definition when it is referenced in a Profile, Questionnaire or an instance  (should be globally unique OID, UUID, or URI).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="version" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The identifier that is used to identify this version of the observation definition when it is referenced in a Profile, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Details of the individual or organization who accepts responsibility for publishing the observation definition.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="telecom" minOccurs="0" maxOccurs="unbounded" type="Contact">
+            <xs:annotation>
+              <xs:documentation>Contact details to assist a user in finding and communicating with the publisher.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="ResourceCommonDataElementStatus">
+            <xs:annotation>
+              <xs:documentation>The status of the observation definition.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation>The date that this version of the observation definition was published.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="category" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>A set of terms from external terminologies that may be used to assist with indexing and searching of data element definitions.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="Coding">
+            <xs:annotation>
+              <xs:documentation>A code assigned to the data eleent within a particular terminology.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="question" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The default/suggested phrasing to use when prompting a human to capture the data element.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="definition" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Provides a complete explanation of the meaning of the data element for human readability.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="comments" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Comments about the use of the element, including notes about how to use the data properly, exceptions to proper use, etc.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="requirements" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Explains why this element is needed and why it's been constrained as it has.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="synonym" minOccurs="0" maxOccurs="unbounded" type="string">
+            <xs:annotation>
+              <xs:documentation>Identifies additional names by which this element might also be known.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="code">
+            <xs:annotation>
+              <xs:documentation>The FHIR data type that is the type for this element.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation>An example value for this element.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="exampleBoolean" type="boolean"/>
+            <xs:element name="exampleInteger" type="integer"/>
+            <xs:element name="exampleDecimal" type="decimal"/>
+            <xs:element name="exampleBase64Binary" type="base64Binary"/>
+            <xs:element name="exampleInstant" type="instant"/>
+            <xs:element name="exampleString" type="string"/>
+            <xs:element name="exampleUri" type="uri"/>
+            <xs:element name="exampleDate" type="date"/>
+            <xs:element name="exampleDateTime" type="dateTime"/>
+            <xs:element name="exampleCode" type="code"/>
+            <xs:element name="exampleOid" type="oid"/>
+            <xs:element name="exampleUuid" type="uuid"/>
+            <xs:element name="exampleId" type="id"/>
+            <xs:element name="exampleAttachment" type="Attachment"/>
+            <xs:element name="exampleIdentifier" type="Identifier"/>
+            <xs:element name="exampleCodeableConcept" type="CodeableConcept"/>
+            <xs:element name="exampleCoding" type="Coding"/>
+            <xs:element name="exampleQuantity" type="Quantity"/>
+            <xs:element name="exampleRange" type="Range"/>
+            <xs:element name="examplePeriod" type="Period"/>
+            <xs:element name="exampleRatio" type="Ratio"/>
+            <xs:element name="exampleResource" type="ResourceReference"/>
+            <xs:element name="exampleSampledData" type="SampledData"/>
+            <xs:element name="exampleHumanName" type="HumanName"/>
+            <xs:element name="exampleAddress" type="Address"/>
+            <xs:element name="exampleContact" type="Contact"/>
+            <xs:element name="exampleSchedule" type="Schedule"/>
+          </xs:choice>
+          <xs:element name="maxLength" minOccurs="0" maxOccurs="1" type="integer">
+            <xs:annotation>
+              <xs:documentation>Indicates the shortest length that SHALL be supported by conformant instances without truncation.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="units" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>Identifies the units of measure in which the data element should be captured or expressed.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="binding" type="CommonDataElement.Binding" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Binds to a value set if this element is coded (code, Coding, CodeableConcept).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="mapping" type="CommonDataElement.Mapping" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies a concept from an external specification that roughly corresponds to this element.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CommonDataElement.Binding">
+    <xs:annotation>
+      <xs:documentation>The formal description of a single piece of information that can be gathered and reported.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="isExtensible" minOccurs="1" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation>If true, then conformant systems may use additional codes or (where the data type permits) text alone to convey concepts not covered by the set of codes identified in the binding.  If false, then conformant systems are constrained to the provided codes alone.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="conformance" minOccurs="0" maxOccurs="1" type="BindingConformance">
+            <xs:annotation>
+              <xs:documentation>Indicates the degree of conformance expectations associated with this binding.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Describes the intended use of this particular set of codes.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reference" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>Points to the value set that identifies the set of codes to be used.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CommonDataElement.Mapping">
+    <xs:annotation>
+      <xs:documentation>The formal description of a single piece of information that can be gathered and reported.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="uri" minOccurs="0" maxOccurs="1" type="uri">
+            <xs:annotation>
+              <xs:documentation>A URI that identifies the specification that this mapping is expressed to.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>A name for the specification that is being mapped to.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="comments" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="map" minOccurs="1" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Expresses what part of the target specification corresponds to this element.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ResourceCommonDataElementStatus-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="draft">
+        <xs:annotation>
+          <xs:documentation>This observation definition is still under development.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="active">
+        <xs:annotation>
+          <xs:documentation>This observation definition is ready for normal use.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="retired">
+        <xs:annotation>
+          <xs:documentation>This observation definition has been deprecated, withdrawn or superseded and should no longer be used.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ResourceCommonDataElementStatus">
+    <xs:annotation>
+      <xs:documentation>The lifecycle status of a Resource Observation Definition</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="ResourceCommonDataElementStatus-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="Composition" type="Composition">
     <xs:annotation>
       <xs:documentation>A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement.</xs:documentation>
@@ -2964,12 +3710,12 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
   </xs:complexType>
   <xs:element name="ConceptMap" type="ConceptMap">
     <xs:annotation>
-      <xs:documentation>A statement of relationships from one set of concepts to one or more other concept systems.</xs:documentation>
+      <xs:documentation>A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="ConceptMap">
     <xs:annotation>
-      <xs:documentation>A statement of relationships from one set of concepts to one or more other concept systems.</xs:documentation>
+      <xs:documentation>A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.</xs:documentation>
       <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -3025,45 +3771,49 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
               <xs:documentation>The date that the concept map status was last changed.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="source" minOccurs="1" maxOccurs="1" type="ResourceReference">
+          <xs:choice minOccurs="1" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation>The source value set that specifies the concepts that are being mapped.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="target" minOccurs="1" maxOccurs="1" type="ResourceReference">
+            </xs:annotation>
+            <xs:element name="sourceUri" type="uri"/>
+            <xs:element name="sourceResource" type="ResourceReference"/>
+          </xs:choice>
+          <xs:choice minOccurs="1" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation>The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="concept" type="ConceptMap.Concept" minOccurs="0" maxOccurs="unbounded">
+            </xs:annotation>
+            <xs:element name="targetUri" type="uri"/>
+            <xs:element name="targetResource" type="ResourceReference"/>
+          </xs:choice>
+          <xs:element name="element" type="ConceptMap.Element" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>Mappings for a concept from the source valueset.</xs:documentation>
+              <xs:documentation>Mappings for a concept from the source set.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="ConceptMap.Concept">
+  <xs:complexType name="ConceptMap.Element">
     <xs:annotation>
-      <xs:documentation>A statement of relationships from one set of concepts to one or more other concept systems.</xs:documentation>
+      <xs:documentation>A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="system" minOccurs="1" maxOccurs="1" type="uri">
+          <xs:element name="codeSystem" minOccurs="1" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation>System that defines the concept being mapped.</xs:documentation>
+              <xs:documentation>Code System (if value set crosses code systems).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="1" type="code">
             <xs:annotation>
-              <xs:documentation>Identifies concept being mapped.</xs:documentation>
+              <xs:documentation>Identifies element being mapped.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="dependsOn" type="ConceptMap.DependsOn" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified concept can be resolved, and it has the specified value.</xs:documentation>
+              <xs:documentation>A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="map" type="ConceptMap.Map" minOccurs="0" maxOccurs="unbounded">
@@ -3077,24 +3827,24 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
   </xs:complexType>
   <xs:complexType name="ConceptMap.DependsOn">
     <xs:annotation>
-      <xs:documentation>A statement of relationships from one set of concepts to one or more other concept systems.</xs:documentation>
+      <xs:documentation>A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="concept" minOccurs="1" maxOccurs="1" type="uri">
+          <xs:element name="element" minOccurs="1" maxOccurs="1" type="uri">
             <xs:annotation>
               <xs:documentation>A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="system" minOccurs="1" maxOccurs="1" type="uri">
+          <xs:element name="codeSystem" minOccurs="1" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation>System for a concept in the referenced concept.</xs:documentation>
+              <xs:documentation>Code System (if necessary).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="code" minOccurs="1" maxOccurs="1" type="code">
+          <xs:element name="code" minOccurs="1" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation>Code for a concept in the referenced concept.</xs:documentation>
+              <xs:documentation>Value of the referenced element.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -3103,19 +3853,19 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
   </xs:complexType>
   <xs:complexType name="ConceptMap.Map">
     <xs:annotation>
-      <xs:documentation>A statement of relationships from one set of concepts to one or more other concept systems.</xs:documentation>
+      <xs:documentation>A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="system" minOccurs="0" maxOccurs="1" type="uri">
+          <xs:element name="codeSystem" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation>System of the target.</xs:documentation>
+              <xs:documentation>System of the target (if necessary).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="1" type="code">
             <xs:annotation>
-              <xs:documentation>Code that identifies the target concept.</xs:documentation>
+              <xs:documentation>Code that identifies the target element.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="equivalence" minOccurs="1" maxOccurs="1" type="ConceptMapEquivalence">
@@ -3130,7 +3880,7 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
           </xs:element>
           <xs:element name="product" type="ConceptMap.DependsOn" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation>A set of additional outcomes from this mapping to other value sets. To properly execute this mapping, the specified value set must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.</xs:documentation>
+              <xs:documentation>A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -5173,6 +5923,11 @@ P.O. Box number, delivery hints, and similar address information.</xs:documentat
           <xs:element name="participant" type="Encounter.Participant" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation>The main practitioner responsible for providing the service.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="fulfills" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>The appointment that scheduled this encounter.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="period" minOccurs="0" maxOccurs="1" type="Period">
@@ -8295,6 +9050,225 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="Namespace" type="Namespace">
+    <xs:annotation>
+      <xs:documentation>A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Namespace">
+    <xs:annotation>
+      <xs:documentation>A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types.</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Resource">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="NamespaceType">
+            <xs:annotation>
+              <xs:documentation>Indicates the purpose for the namespace - what kinds of things does it make unique?.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="name" minOccurs="1" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The descriptive name of this particular identifier type or code system.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="NamespaceStatus">
+            <xs:annotation>
+              <xs:documentation>Indicates whether the namespace is &quot;ready for use&quot; or not.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="country" minOccurs="0" maxOccurs="1" type="code">
+            <xs:annotation>
+              <xs:documentation>If present, indicates that the identifier or code system is principally intended for use or applies to entities within the specified country.  For example, the country associated with a national code system.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="category" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>Categorizes a namespace for easier search by grouping related namespaces.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="responsible" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Details about what the namespace identifies including scope, granularity, version labeling, etc.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="usage" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="uniqueId" type="Namespace.UniqueId" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates how the system may be identified when referenced in electronic exchange.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="contact" type="Namespace.Contact" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>The person who can be contacted about this system registration entry.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="replacedBy" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>For namespaces that are retired, indicates the namespace that should be used in their place (if any).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Namespace.UniqueId">
+    <xs:annotation>
+      <xs:documentation>A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="NamespaceIdentifierType">
+            <xs:annotation>
+              <xs:documentation>Identifies the unique identifier scheme used for this particular identifier.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="value" minOccurs="1" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The string that should be sent over the wire to identify the code system or identifier system.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="preferred" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation>Indicates whether this identifier is the &quot;preferred&quot; identifier of this type.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="period" minOccurs="0" maxOccurs="1" type="Period">
+            <xs:annotation>
+              <xs:documentation>Identifies the period of time over which this identifier is considered appropriate to refer to the namespace.  Outside of this window, the identifier might be non-deterministic.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Namespace.Contact">
+    <xs:annotation>
+      <xs:documentation>A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="name" minOccurs="0" maxOccurs="1" type="HumanName">
+            <xs:annotation>
+              <xs:documentation>Names of the person who can be contacted.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="telecom" minOccurs="0" maxOccurs="unbounded" type="Contact">
+            <xs:annotation>
+              <xs:documentation>Identifies the mechanism(s) by which they can be contacted.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="NamespaceStatus-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="proposed">
+        <xs:annotation>
+          <xs:documentation>System has been submitted but not yet approved.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="active">
+        <xs:annotation>
+          <xs:documentation>System is valid for use.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="retired">
+        <xs:annotation>
+          <xs:documentation>System should no longer be used.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NamespaceStatus">
+    <xs:annotation>
+      <xs:documentation>Indicates whether the namespace should be used</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="NamespaceStatus-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="NamespaceType-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="codesystem">
+        <xs:annotation>
+          <xs:documentation>The namespace is used to define concepts and symbols to represent those concepts.  E.g. UCUM, LOINC, NDC code, local lab codes, etc.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="identifier">
+        <xs:annotation>
+          <xs:documentation>The namespace is used to manage identifiers (e.g. license numbers, order numbers, etc.).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="root">
+        <xs:annotation>
+          <xs:documentation>The namespace is used as the root for other identifiers and namespaces.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NamespaceType">
+    <xs:annotation>
+      <xs:documentation>Identifies the purpose of the namespace</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="NamespaceType-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="NamespaceIdentifierType-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="oid">
+        <xs:annotation>
+          <xs:documentation>An ISO object identifier.  E.g. 1.2.3.4.5.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="uuid">
+        <xs:annotation>
+          <xs:documentation>A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="uri">
+        <xs:annotation>
+          <xs:documentation>A uniform resource identifier (ideally a URL - uniform resource locator).  E.g. http://unitsofmeasure.org.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="other">
+        <xs:annotation>
+          <xs:documentation>Some other type of unique identifier.  E.g HL7-assigned reserved string such as LN for LOINC.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NamespaceIdentifierType">
+    <xs:annotation>
+      <xs:documentation>Identifies the style of unique identifier used to identify a namepace</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="NamespaceIdentifierType-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="Observation" type="Observation">
     <xs:annotation>
       <xs:documentation>Measurements and simple assertions made about a patient, device or other subject.</xs:documentation>
@@ -10126,36 +11100,6 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="BindingConformance-list">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="required">
-        <xs:annotation>
-          <xs:documentation>Only codes in the specified set are allowed.  If the binding is extensible, other codes may be used for concepts not covered by the bound set of codes.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="preferred">
-        <xs:annotation>
-          <xs:documentation>For greater interoperability, implementers are strongly encouraged to use the bound set of codes, however alternate codes may be used in derived profiles and implementations if necessary without being considered non-conformant.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="example">
-        <xs:annotation>
-          <xs:documentation>The codes in the set are an example to illustrate the meaning of the field. There is no particular preference for its use nor any assertion that the provided values are sufficient to meet implementation needs.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="BindingConformance">
-    <xs:annotation>
-      <xs:documentation>Binding conformance for applications</xs:documentation>
-      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="BindingConformance-list" use="optional"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:simpleType name="ConstraintSeverity-list">
     <xs:restriction base="xs:string">
       <xs:enumeration value="error">
@@ -10615,60 +11559,45 @@ Terminologies used often pre-coordinate this term with the route and or form of 
   </xs:complexType>
   <xs:element name="Questionnaire" type="Questionnaire">
     <xs:annotation>
-      <xs:documentation>A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+      <xs:documentation>A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="Questionnaire">
     <xs:annotation>
-      <xs:documentation>A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+      <xs:documentation>A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
       <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Resource">
         <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation>This records identifiers associated with this question set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="version" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>The version number assigned by the publisher for business reasons.  It may remain the same when the resource is updated.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="QuestionnaireStatus">
             <xs:annotation>
               <xs:documentation>The lifecycle status of the questionnaire as a whole.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="authored" minOccurs="1" maxOccurs="1" type="dateTime">
+          <xs:element name="date" minOccurs="0" maxOccurs="1" type="date">
             <xs:annotation>
-              <xs:documentation>The date and/or time that this version of the questionnaire was authored.</xs:documentation>
+              <xs:documentation>The date that this version of the questionnaire was authored.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="subject" minOccurs="0" maxOccurs="1" type="ResourceReference">
+          <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation>The subject of the questionnaires: this is the patient that the answers apply to, but this person is not necessarily the source of information.</xs:documentation>
+              <xs:documentation>Organization responsible for developing and maintaining the questionnaire.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="author" minOccurs="0" maxOccurs="1" type="ResourceReference">
+          <xs:element name="group" type="Questionnaire.Group" minOccurs="1" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation>Person who received the answers to the questions in the Questionnaire and recorded them in the system.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="source" minOccurs="0" maxOccurs="1" type="ResourceReference">
-            <xs:annotation>
-              <xs:documentation>The person who answered the questions about the subject. Only used when this is not the subject him/herself.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="name" minOccurs="0" maxOccurs="1" type="CodeableConcept">
-            <xs:annotation>
-              <xs:documentation>Structured name for a predefined list of questions this questionnaire is responding to.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
-            <xs:annotation>
-              <xs:documentation>This records identifiers associated with this question/answer set that are defined by business processed and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="encounter" minOccurs="0" maxOccurs="1" type="ResourceReference">
-            <xs:annotation>
-              <xs:documentation>Encounter during which this questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:element name="group" type="Questionnaire.Group" minOccurs="0" maxOccurs="1">
-            <xs:annotation>
-              <xs:documentation>A group of questions to a possibly similarly grouped set of questions in the questionnaire.</xs:documentation>
+              <xs:documentation>A collection of related questions (or further groupings of questions).</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -10677,19 +11606,24 @@ Terminologies used often pre-coordinate this term with the route and or form of 
   </xs:complexType>
   <xs:complexType name="Questionnaire.Group">
     <xs:annotation>
-      <xs:documentation>A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+      <xs:documentation>A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="name" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="linkId" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation>Structured name for a section of a predefined list of questions this questionnaire is responding to.</xs:documentation>
+              <xs:documentation>A unique identifier within the questionnaire allowing linkage to the equivalent group in a QuestionnaireAnswers resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="header" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation>Text that is displayed above the contents of the group.</xs:documentation>
+              <xs:documentation>The human-readable name for this section of the questionnaire.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="concept" minOccurs="0" maxOccurs="unbounded" type="Coding">
+            <xs:annotation>
+              <xs:documentation>Identifies a how this group of questions is known in a particular terminology such as LOINC.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="text" minOccurs="0" maxOccurs="1" type="string">
@@ -10697,9 +11631,14 @@ Terminologies used often pre-coordinate this term with the route and or form of 
               <xs:documentation>Additional text for the group, used for display purposes.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="subject" minOccurs="0" maxOccurs="1" type="ResourceReference">
+          <xs:element name="required" minOccurs="0" maxOccurs="1" type="boolean">
             <xs:annotation>
-              <xs:documentation>More specific subject this section's answers are about, details the subject given in Questionnaire.</xs:documentation>
+              <xs:documentation>If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="repeats" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation>Whether the group may occur multiple times in the instance, containing multiple sets of answers.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="group" type="Questionnaire.Group" minOccurs="0" maxOccurs="unbounded">
@@ -10718,14 +11657,19 @@ Terminologies used often pre-coordinate this term with the route and or form of 
   </xs:complexType>
   <xs:complexType name="Questionnaire.Question">
     <xs:annotation>
-      <xs:documentation>A structured set of questions and their answers. The Questionnaire may contain questions, answers or both. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+      <xs:documentation>A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="name" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="linkId" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation>Structured name for the question that identifies this question within the Questionnaire or Group.</xs:documentation>
+              <xs:documentation>A unique identifiers within the questionnaire allowing linkage to the equivalent group in a QuestionnaireData resource.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="concept" minOccurs="0" maxOccurs="unbounded" type="Coding">
+            <xs:annotation>
+              <xs:documentation>Identifies a how this group of questions is known in a particular terminology such as LOINC.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="text" minOccurs="0" maxOccurs="1" type="string">
@@ -10733,63 +11677,24 @@ Terminologies used often pre-coordinate this term with the route and or form of 
               <xs:documentation>Text of the question as it is shown to the user.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:choice minOccurs="0" maxOccurs="1" >
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="AnswerFormat">
             <xs:annotation>
-              <xs:documentation>Single-valued answer to the question.</xs:documentation>
-            </xs:annotation>
-            <xs:element name="answerDecimal" type="decimal"/>
-            <xs:element name="answerInteger" type="integer"/>
-            <xs:element name="answerBoolean" type="boolean"/>
-            <xs:element name="answerDate" type="date"/>
-            <xs:element name="answerString" type="string"/>
-            <xs:element name="answerDateTime" type="dateTime"/>
-            <xs:element name="answerInstant" type="instant"/>
-          </xs:choice>
-          <xs:element name="choice" minOccurs="0" maxOccurs="unbounded" type="Coding">
+              <xs:documentation>The expected format of the answer, e.g. the type of input (string, integer) or whether a (multiple)choice is expected.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="required" minOccurs="0" maxOccurs="1" type="boolean">
             <xs:annotation>
-              <xs:documentation>Selections made by the user from the list of options.</xs:documentation>
+              <xs:documentation>If true, indicates that the group must be present and have required questions within it answered.  If false, the group may be skipped when answering the questionnaire.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="repeats" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation>Whether the group may occur multiple times in the instance, containing multiple sets of answers.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="options" minOccurs="0" maxOccurs="1" type="ResourceReference">
             <xs:annotation>
               <xs:documentation>Reference to a valueset containing the possible options.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
-          <xs:choice minOccurs="0" maxOccurs="1" >
-            <xs:annotation>
-              <xs:documentation>Structured answer in the form of a FHIR Resource or datatype.</xs:documentation>
-            </xs:annotation>
-            <xs:element name="dataBoolean" type="boolean"/>
-            <xs:element name="dataInteger" type="integer"/>
-            <xs:element name="dataDecimal" type="decimal"/>
-            <xs:element name="dataBase64Binary" type="base64Binary"/>
-            <xs:element name="dataInstant" type="instant"/>
-            <xs:element name="dataString" type="string"/>
-            <xs:element name="dataUri" type="uri"/>
-            <xs:element name="dataDate" type="date"/>
-            <xs:element name="dataDateTime" type="dateTime"/>
-            <xs:element name="dataCode" type="code"/>
-            <xs:element name="dataOid" type="oid"/>
-            <xs:element name="dataUuid" type="uuid"/>
-            <xs:element name="dataId" type="id"/>
-            <xs:element name="dataAttachment" type="Attachment"/>
-            <xs:element name="dataIdentifier" type="Identifier"/>
-            <xs:element name="dataCodeableConcept" type="CodeableConcept"/>
-            <xs:element name="dataCoding" type="Coding"/>
-            <xs:element name="dataQuantity" type="Quantity"/>
-            <xs:element name="dataRange" type="Range"/>
-            <xs:element name="dataPeriod" type="Period"/>
-            <xs:element name="dataRatio" type="Ratio"/>
-            <xs:element name="dataResource" type="ResourceReference"/>
-            <xs:element name="dataSampledData" type="SampledData"/>
-            <xs:element name="dataHumanName" type="HumanName"/>
-            <xs:element name="dataAddress" type="Address"/>
-            <xs:element name="dataContact" type="Contact"/>
-            <xs:element name="dataSchedule" type="Schedule"/>
-          </xs:choice>
-          <xs:element name="remarks" minOccurs="0" maxOccurs="1" type="string">
-            <xs:annotation>
-              <xs:documentation>The remark contains information about the answer given. This is additional information about the answer the author wishes to convey, but should not be used to contain information that is part of the answer itself.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="group" type="Questionnaire.Group" minOccurs="0" maxOccurs="unbounded">
@@ -10801,48 +11706,251 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="QuestionnaireStatus-list">
+  <xs:simpleType name="AnswerFormat-list">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="draft">
+      <xs:enumeration value="decimal">
         <xs:annotation>
-          <xs:documentation>This Questionnaire is used as a template but the template is not ready for use or publication.</xs:documentation>
+          <xs:documentation>Answer is a floating point number.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="published">
+      <xs:enumeration value="integer">
         <xs:annotation>
-          <xs:documentation>This Questionnaire is used as a template, is published and ready for use.</xs:documentation>
+          <xs:documentation>Answer is an integer.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="retired">
+      <xs:enumeration value="boolean">
         <xs:annotation>
-          <xs:documentation>This Questionnaire is used as a template but should no longer be used for new Questionnaires.</xs:documentation>
+          <xs:documentation>Answer is a yes/no answer.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="in progress">
+      <xs:enumeration value="date">
         <xs:annotation>
-          <xs:documentation>This Questionnaire has been filled out with answers, but changes or additions are still expected to be made to it.</xs:documentation>
+          <xs:documentation>Answer is a date.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="completed">
+      <xs:enumeration value="string">
         <xs:annotation>
-          <xs:documentation>This Questionnaire has been filled out with answers, and the current content is regarded as definitive.</xs:documentation>
+          <xs:documentation>Answer is a short (few words to short sentence) free-text entry.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="amended">
+      <xs:enumeration value="text">
         <xs:annotation>
-          <xs:documentation>This Questionnaire has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.</xs:documentation>
+          <xs:documentation>Answer is a long (potentially multi-paragram) free-text entry.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="dateTime">
+        <xs:annotation>
+          <xs:documentation>Answer is a date and time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="instant">
+        <xs:annotation>
+          <xs:documentation>Answer is a system timestamp.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="choice">
+        <xs:annotation>
+          <xs:documentation>Answer is a choice from a list of options.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="open-choice">
+        <xs:annotation>
+          <xs:documentation>Answer is a choice from a list of options or a free-text entry.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="QuestionnaireStatus">
+  <xs:complexType name="AnswerFormat">
     <xs:annotation>
-      <xs:documentation>Lifecycle status of the questionnaire</xs:documentation>
+      <xs:documentation>The expected format of an answer</xs:documentation>
       <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="Element">
-        <xs:attribute name="value" type="QuestionnaireStatus-list" use="optional"/>
+        <xs:attribute name="value" type="AnswerFormat-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QuestionnaireAnswers" type="QuestionnaireAnswers">
+    <xs:annotation>
+      <xs:documentation>A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QuestionnaireAnswers">
+    <xs:annotation>
+      <xs:documentation>A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Resource">
+        <xs:sequence>
+          <xs:element name="questionnaire" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>Indicates the Questionnaire resource that defines the form for which answers are being provided.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="QuestionnaireAnswersStatus">
+            <xs:annotation>
+              <xs:documentation>The lifecycle status of the questionnaire answers as a whole.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="subject" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>The subject of the questionnaire answers.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="author" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>Person who received the answers to the questions in the QuestionnaireAnswers and recorded them in the system.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="authored" minOccurs="1" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation>The date and/or time that this version of the questionnaire answers was authored.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="source" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>The person who answered the questions about the subject. Only used when this is not the subject him/herself.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="encounter" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>Encounter during which this set of questionnaire answers were collected. When there were multiple encounters, this is the one considered most relevant to the context of the answers.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="group" type="QuestionnaireAnswers.Group" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>A group of questions to a possibly similarly grouped set of questions in the questionnaire answers.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="QuestionnaireAnswers.Group">
+    <xs:annotation>
+      <xs:documentation>A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="linkId" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Identifies the group from the Questionnaire that corresponds to this group in the QuestionnaireAnswers resource.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Text that is displayed above the contents of the group.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="text" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Additional text for the group, used for display purposes.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="subject" minOccurs="0" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>More specific subject this section's answers are about, details the subject given in QuestionnaireAnswers.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="group" type="QuestionnaireAnswers.Group" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>A sub-group within a group. The ordering of groups within this group is relevant.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="question" type="QuestionnaireAnswers.Question" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Set of questions within this group. The order of questions within the group is relevant.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="QuestionnaireAnswers.Question">
+    <xs:annotation>
+      <xs:documentation>A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="linkId" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Identifies the question from the Questionnaire that corresponds to this question in the QuestionnaireAnswers resource.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="text" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Text of the question as it is shown to the user.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="answer" type="QuestionnaireAnswers.Answer" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>The respondant's answer(s) to the question.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="group" type="QuestionnaireAnswers.Group" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Nested group, containing nested question for this question. The order of groups within the question is relevant.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="QuestionnaireAnswers.Answer">
+    <xs:annotation>
+      <xs:documentation>A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation>Single-valued answer to the question.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="valueDecimal" type="decimal"/>
+            <xs:element name="valueInteger" type="integer"/>
+            <xs:element name="valueBoolean" type="boolean"/>
+            <xs:element name="valueDate" type="date"/>
+            <xs:element name="valueString" type="string"/>
+            <xs:element name="valueDateTime" type="dateTime"/>
+            <xs:element name="valueInstant" type="instant"/>
+            <xs:element name="valueCoding" type="Coding"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="QuestionnaireAnswersStatus-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="in progress">
+        <xs:annotation>
+          <xs:documentation>This QuestionnaireAnswers has been partially filled out with answers, but changes or additions are still expected to be made to it.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="completed">
+        <xs:annotation>
+          <xs:documentation>This QuestionnaireAnswers has been filled out with answers, and the current content is regarded as definitive.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="amended">
+        <xs:annotation>
+          <xs:documentation>This QuestionnaireAnswers has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="QuestionnaireAnswersStatus">
+    <xs:annotation>
+      <xs:documentation>Lifecycle status of the questionnaire answers</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="QuestionnaireAnswersStatus-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -11536,6 +12644,103 @@ Terminologies used often pre-coordinate this term with the route and or form of 
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="Slot" type="Slot">
+    <xs:annotation>
+      <xs:documentation>(informative) A slot of time on a schedule that may be available for booking appointments.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Slot">
+    <xs:annotation>
+      <xs:documentation>(informative) A slot of time on a schedule that may be available for booking appointments.</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Resource">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation>External Ids for this item.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation>The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="availability" minOccurs="1" maxOccurs="1" type="ResourceReference">
+            <xs:annotation>
+              <xs:documentation>The availability resource that this slot defines an interval of status information.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="freeBusyType" minOccurs="1" maxOccurs="1" type="SlotStatus">
+            <xs:annotation>
+              <xs:documentation>BUSY | FREE | BUSY-UNAVAILABLE | BUSY-TENTATIVE.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="start" minOccurs="1" maxOccurs="1" type="instant">
+            <xs:annotation>
+              <xs:documentation>Date/Time that the slot is to begin.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="end" minOccurs="1" maxOccurs="1" type="instant">
+            <xs:annotation>
+              <xs:documentation>Date/Time that the slot is to conclude.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="overbooked" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation>This slot has already been overbooked, appointments are unlikely to be accepted for this time.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="comment" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Comments on the slot to describe any extended information. Such as custom constraints on the slot.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="lastModified" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation>When this slot was created, or last revised.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="SlotStatus-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BUSY">
+        <xs:annotation>
+          <xs:documentation>Indicates that the time interval is busy because one  or more events have been scheduled for that interval.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FREE">
+        <xs:annotation>
+          <xs:documentation>Indicates that the time interval is free for scheduling.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSY-UNAVAILABLE">
+        <xs:annotation>
+          <xs:documentation>Indicates that the time interval is busy and that the interval can not be scheduled.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BUSY-TENTATIVE">
+        <xs:annotation>
+          <xs:documentation>Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SlotStatus">
+    <xs:annotation>
+      <xs:documentation>The free/busy status of an appointment</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="SlotStatus-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="Specimen" type="Specimen">
     <xs:annotation>
       <xs:documentation>Sample for analysis.</xs:documentation>
@@ -11751,6 +12956,195 @@ Terminologies used often pre-coordinate this term with the route and or form of 
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:attribute name="value" type="HierarchicalRelationshipType-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Subscription" type="Subscription">
+    <xs:annotation>
+      <xs:documentation>Todo.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Subscription">
+    <xs:annotation>
+      <xs:documentation>Todo.</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Resource">
+        <xs:sequence>
+          <xs:element name="criteria" minOccurs="1" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="contact" minOccurs="0" maxOccurs="unbounded" type="Contact">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reason" minOccurs="1" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="SubscriptionStatus">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="error" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="channel" type="Subscription.Channel" minOccurs="1" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="end" minOccurs="0" maxOccurs="1" type="instant">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="tag" type="Subscription.Tag" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Subscription.Channel">
+    <xs:annotation>
+      <xs:documentation>Todo.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="SubscriptionChannelType">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="url" minOccurs="0" maxOccurs="1" type="uri">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="payload" minOccurs="1" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>ToDo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="header" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Usage depends on the channel type.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Subscription.Tag">
+    <xs:annotation>
+      <xs:documentation>Todo.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="term" minOccurs="1" maxOccurs="1" type="uri">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="scheme" minOccurs="1" maxOccurs="1" type="uri">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>Todo.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="SubscriptionStatus-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="requested">
+        <xs:annotation>
+          <xs:documentation>The client has requested the subscription, and the server has not yet set it up.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="active">
+        <xs:annotation>
+          <xs:documentation>The subscription is active.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="error">
+        <xs:annotation>
+          <xs:documentation>The server has an error executing the notification.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="off">
+        <xs:annotation>
+          <xs:documentation>Too many errors have occurred or the subscription has expired.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SubscriptionStatus">
+    <xs:annotation>
+      <xs:documentation>The status of a subscription</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="SubscriptionStatus-list" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="SubscriptionChannelType-list">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rest-hook">
+        <xs:annotation>
+          <xs:documentation>The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="websocket">
+        <xs:annotation>
+          <xs:documentation>The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="email">
+        <xs:annotation>
+          <xs:documentation>The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="sms">
+        <xs:annotation>
+          <xs:documentation>The channel is executed by sending an SMS message to the phone number identified in the URL (tel:).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="message">
+        <xs:annotation>
+          <xs:documentation>The channel Is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc) to the application identified in the URI.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SubscriptionChannelType">
+    <xs:annotation>
+      <xs:documentation>The type of method used to execute a subscription</xs:documentation>
+      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="SubscriptionChannelType-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -12044,6 +13438,16 @@ Terminologies used often pre-coordinate this term with the route and or form of 
               <xs:documentation>A free text natural language name describing the value set.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="purpose" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation>This should describe �the semantic space&quot; to be included in the value set. This can also describe the approach taken to build the value set.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="immutable" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation>If this is set to �true�, then no new versions of the content logical definition can be created.  Note: Other metadata might still change.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation>The name of the individual or organization that published the value set.</xs:documentation>
@@ -12056,12 +13460,12 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           </xs:element>
           <xs:element name="description" minOccurs="1" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation>A free text natural language description of the use of the value set - reason for definition, conditions of use, etc.</xs:documentation>
+              <xs:documentation>A free text natural language description of the use of the value set - reason for definition, conditions of use, etc. The description may include a list of.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="copyright" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation>A copyright statement relating to the value set and/or its contents.</xs:documentation>
+              <xs:documentation>A copyright statement relating to the value set and/or its contents. These are generally legal restrictions on the use and publishing of the value set.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="ValueSetStatus">
@@ -12082,6 +13486,11 @@ Terminologies used often pre-coordinate this term with the route and or form of 
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
               <xs:documentation>The date that the value set status was last changed.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="stableDate" minOccurs="0" maxOccurs="1" type="date">
+            <xs:annotation>
+              <xs:documentation>If a Stability Date is expanded by evaluating the Content Logical Definition using the current version of all referenced code system(s) and value sets as of the Stability Date.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="define" type="ValueSet.Define" minOccurs="0" maxOccurs="1">
@@ -12307,51 +13716,6 @@ Terminologies used often pre-coordinate this term with the route and or form of 
            </xs:annotation>
           </xs:element>
         </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="FilterOperator-list">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="=">
-        <xs:annotation>
-          <xs:documentation>The property value has the concept specified by the value.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="is-a">
-        <xs:annotation>
-          <xs:documentation>The property value has a concept that has an is-a relationship with the value.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="is-not-a">
-        <xs:annotation>
-          <xs:documentation>The property value has a concept that does not have an is-a relationship with the value.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="regex">
-        <xs:annotation>
-          <xs:documentation>The property value representation matches the regex specified in the value.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="in">
-        <xs:annotation>
-          <xs:documentation>The property value is in the set of codes or concepts identified by the value.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="not in">
-        <xs:annotation>
-          <xs:documentation>The property value is not in the set of codes or concepts identified by the value.</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="FilterOperator">
-    <xs:annotation>
-      <xs:documentation>The kind of operation to perform as a part of a property based filter</xs:documentation>
-      <xs:documentation>If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="FilterOperator-list" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

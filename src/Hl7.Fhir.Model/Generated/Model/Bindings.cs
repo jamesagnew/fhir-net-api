@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 
 /*
-  Copyright (c) 2011-2013, HL7, Inc.
+  Copyright (c) 2011-2014, HL7, Inc.
   All rights reserved.
   
   Redistribution and use in source and binary forms, with or without modification, 
@@ -36,7 +36,7 @@ using System.Runtime.Serialization;
 */
 
 //
-// Generated on Thu, Apr 24, 2014 12:29+0200 for FHIR v0.80
+// Generated on Tue, May 20, 2014 16:08+0200 for FHIR v0.2.1
 //
 namespace Hl7.Fhir.Model
 {
@@ -153,10 +153,30 @@ namespace Hl7.Fhir.Model
         [EnumLiteral("AllergyIntolerance")]
         AllergyIntolerance,
         /// <summary>
+        /// The Appointment resource
+        /// </summary>
+        [EnumLiteral("Appointment")]
+        Appointment,
+        /// <summary>
+        /// The AppointmentResponse resource
+        /// </summary>
+        [EnumLiteral("AppointmentResponse")]
+        AppointmentResponse,
+        /// <summary>
+        /// The Availability resource
+        /// </summary>
+        [EnumLiteral("Availability")]
+        Availability,
+        /// <summary>
         /// The CarePlan resource
         /// </summary>
         [EnumLiteral("CarePlan")]
         CarePlan,
+        /// <summary>
+        /// The CommonDataElement resource
+        /// </summary>
+        [EnumLiteral("CommonDataElement")]
+        CommonDataElement,
         /// <summary>
         /// The Composition resource
         /// </summary>
@@ -283,6 +303,11 @@ namespace Hl7.Fhir.Model
         [EnumLiteral("MessageHeader")]
         MessageHeader,
         /// <summary>
+        /// The Namespace resource
+        /// </summary>
+        [EnumLiteral("Namespace")]
+        Namespace,
+        /// <summary>
         /// The Observation resource
         /// </summary>
         [EnumLiteral("Observation")]
@@ -348,6 +373,11 @@ namespace Hl7.Fhir.Model
         [EnumLiteral("Questionnaire")]
         Questionnaire,
         /// <summary>
+        /// The QuestionnaireAnswers resource
+        /// </summary>
+        [EnumLiteral("QuestionnaireAnswers")]
+        QuestionnaireAnswers,
+        /// <summary>
         /// The RelatedPerson resource
         /// </summary>
         [EnumLiteral("RelatedPerson")]
@@ -358,10 +388,20 @@ namespace Hl7.Fhir.Model
         [EnumLiteral("SecurityEvent")]
         SecurityEvent,
         /// <summary>
+        /// The Slot resource
+        /// </summary>
+        [EnumLiteral("Slot")]
+        Slot,
+        /// <summary>
         /// The Specimen resource
         /// </summary>
         [EnumLiteral("Specimen")]
         Specimen,
+        /// <summary>
+        /// The Subscription resource
+        /// </summary>
+        [EnumLiteral("Subscription")]
+        Subscription,
         /// <summary>
         /// The Substance resource
         /// </summary>
